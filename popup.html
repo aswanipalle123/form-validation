@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>popup</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <style>
+        .container{
+            height:100vh;
+            width:100%;
+            display:flex;
+            justify-content: center;  
+            align-items: center;
+            background-color: azure;      
+        }
+        .popup{
+            width:400px;
+            background-color: #fff;
+            border-radius:6px;
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%) scale(0.1);
+            text-align: center;
+            padding:40px 20px 50px;
+            box-shadow: 0px 30px 30px rgba(0,0,0,0.2); 
+            top:0;
+           visibility: hidden;
+           transition:transform 0.4s,top 0.4s;
+        }
+        .popup h2{
+            font-size:38px;
+            font-weight: 500;
+            margin:30px 0 10px;
+        }
+        .popup button{
+            width:100%;
+            font-size: 20px;
+            padding:7px 8px;
+            background-color: #6fd649;
+            color:#fff;
+            border:0;
+            outline:none;
+            border-radius:4px;
+            cursor:pointer;
+
+        }
+        .popup i{
+            background-color:greenyellow;
+            font-size: 40px;
+            color:#fff;
+            height:70px;
+            width:70px;
+            border-radius:50%;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width:100px;
+            /*margin-top:-50px;*/
+            position: absolute;
+            margin-top:-80px;
+            left:calc(50% - 60px);
+            box-shadow: 0px 30px 30px rgba(0,0,0,0.2); 
+            /*top:-50px;
+            /*left:140px;*/
+            
+        }
+        .open-popup{
+            visibility: visible;
+            top:50%;
+            transform: translate(-50%,-50%) scale(1); 
+        }
+        .container .submit{
+            width:10%;
+            
+            font-size: 20px;
+            padding:7px 8px;
+            background-color: #6fd649;
+            color:#fff;
+            border:0;
+            outline:none;
+            border-radius:4px;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button type="submit" class="submit" onclick="openPopup()">submit</button>
+        <div class="popup" id="popup">
+            <i class="fa-solid fa-check"></i>
+            <h2>Thank You!</h2>
+            <p>Your Details have been successfully submitted</p>
+            <button type="button" onclick="closePopup()">ok</button>
+        </div>
+    </div>
+    <script>
+        let popup=document.getElementById("popup");
+        function openPopup(){
+          popup.classList.add("open-popup");
+        }
+        function closePopup(){
+
+            popup.classList.remove("open-popup");
+        }
+    </script>
+</body>
+</html>
